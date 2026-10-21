@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RM. Padang Kando Jaya - Autentik & Lezat</title>
+    <link rel="stylesheet" href="style.css">
+
+
+    
+</head>
+<body>
+
+    
+    <header>
+        <div class="logo">RM. Padang Kando Jaya</div>
+        <nav>
+            <a href="#tentang">Tentang</a>
+            <a href="#menu">Menu Pilihan</a>
+            <a href="#pemesanan">Pesan</a>
+        </nav>
+    </header>
+
+
+    <section class="hero">
+        <h1>Kelezatan Asli Minang di Setiap Suapan</h1>
+        <p>Bumbu rempah khas Padang pilihan, dijamin bikin ketagihan dan menggugah selera.</p>
+        <a href="#pemesanan" class="btn">Pesan Sekarang</a>
+    </section>
+
+
+    <section id="tentang" class="section">
+        <h2>Tentang Kando Jaya</h2>
+        <p>Rumah Makan Padang Kando Jaya menyajikan masakan tradisional Minang dengan resep turun-temurun. Menggunakan santan segar dan rempah murni berkualitas tinggi tanpa bahan pengawet.</p>
+    </section>
+
+    <section id="menu" class="section" style="background-color: #f5f5f5;">
+        <h2>Menu Andalan Kami + Nasi</h2>
+        <div class="menu-container">
+            
+          
+            <div class="menu-card">
+                <h3>Paket Rendang + Nasi</h3>
+                <p>Nasi hangat disiram kuah gulai, dilengkapi rendang daging sapi empuk meresap rempah, daun singkong, dan sambal hijau.</p>
+                <div class="price">Rp 25.000</div>
+            </div>
+
+         
+            <div class="menu-card">
+                <h3>Paket Ayam Gulai + Nasi</h3>
+                <p>Nasi hangat dengan potongan ayam gulai empuk berkuah kental gurih khas Minang, lengkap dengan sayur nangka.</p>
+                <div class="price">Rp 22.000</div>
+            </div>
+
+    
+            <div class="menu-card">
+                <h3>Paket Ayam Bakar + Nasi</h3>
+                <p>Nasi hangat dan ayam bakar beroleskan bumbu kecap pedas manis gurih khas arang, disajikan dengan lalapan segar.</p>
+                <div class="price">Rp 20.000</div>
+            </div>
+            <div class="menu-card">
+                <h3>Paket Udang Balado + Nasi</h3>
+                <p>Nasi hangat dan udang balado pedas nikmat, lengkap dengan lalapan segar.</p>
+                <div class="price">Rp 20.000</div>
+            </div>
+            <div class="menu-card">
+                <h3>Paket Ikan Bakar + Nasi</h3>
+                <p>Nasi hangat dan ikan bakar gurih beraroma asap, disajikan dengan sambal khas Minang dan lalapan segar.</p>
+                <div class="price">Rp 23.000</div>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="pemesanan" class="section">
+        <h2>Formulir Pesanan Cepat</h2>
+        <p style="font-size: 13px; color: #666; margin-bottom: 15px;">Silakan isi formulir di bawah ini untuk mengirim pesanan langsung via WhatsApp.</p>
+        
+        <div class="form-section">
+            <form onsubmit="kirimWhatsApp(event)">
+                <div class="form-group">
+                    <label for="nama">Nama Lengkap:</label>
+                    <input type="text" id="nama" placeholder="Contoh: Rian Utama" required>
+                </div>
+                <div class="form-group">
+                    <label for="pilihanMenu">Pilih Menu:</label>
+                    <select id="pilihanMenu" required>
+                        <option value="">-- Pilih Paket Menu --</option>
+                        <option value="Paket Rendang + Nasi (Rp 20.000)">Paket Rendang + Nasi</option>
+                        <option value="Paket Ayam Gulai + Nasi (Rp 22.000)">Paket Ayam Gulai + Nasi</option>
+                        <option value="Paket Ayam Bakar + Nasi (Rp 23.000)">Paket Ayam Bakar + Nasi</option>
+                        <option value="Paket ikan bakar + Nasi (Rp 23.000)">Paket ikan bakar + Nasi</option>
+                        <option value="Paket Udang Balado + Nasi (Rp 20.000)">Paket Udang Balado + Nasi</option>
+
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="jumlah">Jumlah Porsi:</label>
+                    <input type="number" id="jumlah" min="1" value="1" required>
+                </div>
+                <div class="form-group">
+                    <label for="alamat">Alamat Pengiriman:</label>
+                    <textarea id="alamat" placeholder="Contoh: Jl. Sudirman No. 45" required></textarea>
+                </div>
+                <button type="submit">Kirim Pesanan ke WhatsApp</button>
+            </form>
+        </div>
+    </section>
+    
+
+   
+    <footer>
+        <p>&copy; 2026 RMw. Padang Kando Jaya. All rights reserved.</p>
+    </footer>
+    
+                <div class="total-box">
+                    <span>Estimasi Total Pembayaran:</span>
+                    <span id="totalHarga">Rp 0</span>
+                </div>
+
+                <button type="submit">Kirim Pesanan ke WhatsApp</button>
+ 
+    <script>
+     
+        const hargaMenu = {
+            "Paket Rendang + Nasi (Rp 20.000)": 20000,
+            "Paket Ayam Gulai + Nasi (Rp 22.000)": 22000,
+            "Paket Ayam Bakar + Nasi (Rp 23.000)": 23000,
+            "Paket ikan bakar + Nasi (Rp 23.000)": 23000,
+            "Paket Udang Balado + Nasi (Rp 20.000)": 20000
+        };
+
+        const pilihanMenuInput = document.getElementById('pilihanMenu');
+        const jumlahInput = document.getElementById('jumlah');
+        const totalHargaText = document.getElementById('totalHarga');
+
+       
+        function hitungTotal() {
+            const menuDipilih = pilihanMenuInput.value;
+            const jumlah = parseInt(jumlahInput.value) || 0;
+            
+            if (menuDipilih && hargaMenu[menuDipilih]) {
+                const total = hargaMenu[menuDipilih] * jumlah;
+              
+                totalHargaText.textContent = 'Rp ' + total.toLocaleString('id-ID');
+            } else {
+                totalHargaText.textContent = 'Rp 0';
+            }
+        }
+
+        pilihanMenuInput.addEventListener('change', hitungTotal);
+        jumlahInput.addEventListener('input', hitungTotal);
+
+        
+        function kirimWhatsApp(event) {
+            event.preventDefault();
+
+         
+            const nomorWA = "no hp anda";
+            const nama = document.getElementById('nama').value;
+            const menu = pilihanMenuInput.value;
+            const jumlah = jumlahInput.value;
+            const alamat = document.getElementById('alamat').value;
+            const total = totalHargaText.textContent;
+
+          
+            const pesan = `Halo RM. Padang Kando Jaya, saya ingin memesan:\n\n` +
+                          `*Nama:* ${nama}\n` +
+                          `*Pesanan:* ${menu}\n` +
+                          `*Jumlah:* ${jumlah} porsi\n` +
+                          `*Total Pembayaran:* ${total}\n` +
+                          `*Alamat Pengiriman:* ${alamat}\n\n` +
+                          `Mohon diproses, terima kasih!`;
+
+            
+            const url = `https://wa.me/${nomorWA}?text=${encodeURIComponent(pesan)}`;
+            window.open(url, '_blank');
+        }
+    </script>
+
+
+</body>
